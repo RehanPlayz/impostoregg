@@ -1,0 +1,26 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v1"
+    },
+    "exported_at": "2020-11-15T17:11:07+01:00",
+    "name": "Impostor Server (1.2.2) - InDev",
+    "author": "lyco@green-bull.in",
+    "description": "Impostor is one of the first Among Us private servers, written in C#.\r\n\r\nThe latest version supported is 2020.9.22+, both desktop and mobile.\r\n\r\nThere are no special features at this moment, the goal is aiming to be as close as possible to the real server, for now. In a later stage, making modifications to game logic by modifying GameData packets can be looked at.",
+    "image": "docker.io\/princepines\/dotnet-5:latest",
+    "startup": ".\/Impostor.Server",
+    "config": {
+        "files": "{\r\n    \"config.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"Server.PublicPort\": \"{{server.build.default.port}}\",\r\n            \"Server.ListenPort\": \"{{server.build.default.port}}\"\r\n        }\r\n    }\r\n}",
+        "startup": "{\r\n    \"done\": \"Matchmaker is listening on\",\r\n    \"userInteraction\": []\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\n\r\napt -y update\r\napt -y upgrade\r\napt -y --no-install-recommends install wget curl jq unzip tar redis-server file ca-certificates apt-utils\r\n\r\n\r\nexport HOME=\/mnt\/server\r\ncd $HOME\r\n\r\nDOWNLOAD_LINK=\"https:\/\/ci.appveyor.com\/api\/buildjobs\/94d2to9590wfg8sv\/artifacts\/build%2FImpostor-Server_1.2.2-ci.110_linux-x64.tar.gz\"\r\n\r\necho $DOWNLOAD_LINK\r\nwget $DOWNLOAD_LINK\r\n\r\ntar -xvzf build%2FImpostor-Server_1.2.2-ci.110_linux-x64.tar.gz\r\nrm -fR build%2FImpostor-Server_1.2.2-ci.110_linux-x64.tar.gz\r\nchmod +x Impostor.Server\r\necho Please Change the \"PublicPort\" and \"ListenPort\", from 22023 to your game server port!, it is located on config.json, do this starting your server!!",
+            "container": "debian:buster-slim",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": []
+}
