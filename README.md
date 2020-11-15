@@ -11,4 +11,4 @@ Created by: princepines
 
 https://green-bull.in
 
-![https://discord.gg/UNNu38Frgy](https://discordapp.com/api/guilds/769224355845898291/widget.png?style=banner2)
+<a href="https://discord.gg/UNNu38Frgy">![https://discord.gg/UNNu38Frgy](https://discordapp.com/api/guilds/769224355845898291/widget.png?style=banner2)</a>
