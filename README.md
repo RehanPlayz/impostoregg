@@ -11,4 +11,4 @@ Created by: princepines
 
 https://green-bull.in
 
-Discord Server: https://discord.gg/UNNu38Frgy
+![Discord Banner 2](https://discordapp.com/api/guilds/769224355845898291/widget.png?style=banner2)
